@@ -1,0 +1,13 @@
+# Cobolt laser blink control (see cobolt_laser_notebook.ipynb)
+# NOTE: pycobolt is NOT on PyPI - it is GitHub-only and needs Python >= 3.10.
+#   uv:  uv add "pycobolt @ git+https://github.com/cobolt-lasers/pycobolt.git"
+#   pip: pip install git+https://github.com/cobolt-lasers/pycobolt.git
+pycobolt @ git+https://github.com/cobolt-lasers/pycobolt.git
+pyserial
+numpy
+matplotlib
+psutil          # optional: priority boost in timing_boost(); degrades gracefully without it
+
+# Analysis-only (no hardware needed, e.g. in WSL):
+#   numpy, matplotlib, pandas
+# Jupyter: uv add jupyterlab   (or: uv tool install jupyterlab)
