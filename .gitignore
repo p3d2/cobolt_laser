@@ -1,5 +1,61 @@
-.venv/
+# ── Python ────────────────────────────────────────────────────────────────
 __pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Virtual envs ──────────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Jupyter ───────────────────────────────────────────────────────────────
 .ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+.jupyter/
+
+# ── Editors / OS / backups ────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*~
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# ── Experiment output: regenerated on every run of cobolt_laser_notebook
+#    (LOG_DIR = "logs" in the notebook; timestamped CSVs, never overwritten) ─
 logs/
-*.pyc
+*.log
+# Want to publish one example run? Copy it to data/ and un-ignore with: !data/
+
+# ── Legacy data: old `actual_s` metric, NOT comparable to logs/ (see README).
+#    Kept on disk locally, just not published. ──────────────────────────────
+/test.csv
+/m15*.csv
+/multiply_*.csv
+
+# ── Unrelated Dash/NetworkX prototype; its saved outputs embed ~30
+#    C:\Users\silvap1\... paths, so don't publish it as-is ─────────────────
+Untitled.ipynb
+
+# ── Superseded notebooks. Uncomment to go minimal (single-notebook repo),
+#    then trim the "Which file to use" table in README.md to match ─────────
+# Cycles.ipynb
+# Routines.ipynb
+# cobolt_blink_tracking.ipynb
+# cobolt_laser_blink_notebook.ipynb
+
+# ── Deliberately committed (do NOT ignore) ─────────────────────────────────
+# pyproject.toml · uv.lock · .python-version · requirements.txt
+# README.md · cobolt_laser_notebook.ipynb
