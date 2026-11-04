@@ -8,6 +8,7 @@ numpy
 pandas          # summary_table(): compare runs
 matplotlib
 tqdm            # live per-cycle progress bar
+ipywidgets      # tqdm.auto widget bar in Jupyter (without it: TqdmWarning: IProgress not found)
 psutil          # optional: priority boost in timing_boost(); degrades gracefully without it
 ipykernel
 jupyterlab

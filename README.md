@@ -51,12 +51,21 @@ earlier one.
 The progress bar is timing-aware: it is rendered *before* the schedule starts, and
 it switches itself off (with a printed reason) when the period is under 20 ms or
 when the first render is too slow for the OFF dwell — so it can never silently
-degrade the numbers you are measuring.
+degrade the numbers you are measuring. Its widget rendering needs `ipywidgets`,
+which is a project dependency.
 
-**Troubleshooting.** If `import serial` or `import pycobolt` fails while
-`uv pip list` still shows them, the venv lost package files but kept their
-metadata (typical after Windows-side uv touches `.venv` over `\\wsl.localhost\…`).
-Repair with `rm -rf .venv && uv sync`.
+**Troubleshooting.**
+
+- `TqdmWarning: IProgress not found` → `ipywidgets` is missing from the kernel.
+  It is in `pyproject.toml`/`uv.lock`, so `uv sync` fixes it.
+- Adding a package with `uv pip install X` only patches `.venv`: it is *not*
+  recorded in `pyproject.toml`, and the next `uv sync` prunes it again (uv makes
+  the venv match the lock exactly). Use `uv add X` so the fix survives and reaches
+  the other machine.
+- If `import serial` or `import pycobolt` fails while `uv pip list` still shows
+  them, the venv lost package files but kept their metadata (typical after
+  Windows-side uv touches `.venv` over `\\wsl.localhost\…`). Repair with
+  `rm -rf .venv && uv sync`.
 
 ## Which file to use
 
